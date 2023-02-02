@@ -8,6 +8,7 @@ import LensAuthenticationProvider from "../components/LensAuthenticationProvider
 import TagsFilterProvider from "../components/TagsFilterProvider";
 import { alchemyProvider } from 'wagmi/providers/alchemy';
 import { mainnet, polygon, optimism, arbitrum, goerli } from 'wagmi/chains';
+import { ChakraProvider } from '@chakra-ui/react'
 
  /* const colors = {
   brand: {
@@ -54,6 +55,7 @@ const wagmiClient = createClient({
 
 function App({ Component, pageProps }: AppProps) {
   return (
+    <ChakraProvider>
     <WagmiConfig client={wagmiClient}>
       <LensAuthenticationProvider>
         <RainbowKitProvider chains={chains}>
@@ -63,6 +65,7 @@ function App({ Component, pageProps }: AppProps) {
         </RainbowKitProvider>
       </LensAuthenticationProvider>
     </WagmiConfig>
+    </ChakraProvider>
   );
 }
 

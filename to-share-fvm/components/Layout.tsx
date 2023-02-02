@@ -2,7 +2,6 @@ import Head from "next/head";
 import React, { FC, useEffect, useState } from "react";
 import { useAccount } from "wagmi";
 import { Navbar, UnauthorizedScreen } from "../components";
-
 interface Props {
   title: string;
   pageDescription: string;
@@ -55,8 +54,8 @@ export const Layout: FC<Props> = ({
       </Head>
       {isConnected ? (
         <>
-          {" "}
-          <nav>
+          {" "}  
+           <nav>
             <Navbar />
           </nav>
           <main className={`${!screen ? "h-screen" : "h-full"} bg-white mt-16`}>
@@ -65,9 +64,7 @@ export const Layout: FC<Props> = ({
         </>
       ) : (
         <UnauthorizedScreen />
-      )}
-      {/* Replace this line to ONLY use Lens Login */}
-      {/* {profile ? <Nav /> : <UnauthorizedScreen />} */}
+      )}      
     </>
   );
 };
