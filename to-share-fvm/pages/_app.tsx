@@ -33,13 +33,14 @@ const { chains, provider, webSocketProvider } = configureChains(
       // This is Alchemy's default API key.
       // You can get your own at https://dashboard.alchemyapi.io
 
-      apiKey: 'J4w7wEYMXrFo0oelBhM1w4somBQlDQAh',
+      apiKey: 'ywcBE0IEoZAQV_qC2yxHi1YKGloxVi-u',
       //apiKey: '',
 
     }),
     publicProvider(),
   ]
 );
+
 
 const { connectors } = getDefaultWallets({
   appName: "My RainbowKit App",
