@@ -2,9 +2,29 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useDisconnect } from "wagmi";
 import { explore } from "../lib/lens/explore-publications";
-import { ProfileContext, TagsFilterContext } from "../components";
-import { deleteLensLocalStorage } from "../lib/lens/localStorage";
-import { Link, Box, Button, CardBody, Menu, Card, MenuButton, MenuList, MenuItem, CardHeader } from '@chakra-ui/react'
+import { Profile, ProfileContext, TagsFilterContext } from "../components";
+import {
+  Link,
+  Box,
+  Button,
+  CardBody,
+  PopoverHeader,
+  Card, Popover,
+  PopoverContent,
+  PopoverTrigger,
+  CardHeader,
+  PopoverArrow,
+  PopoverCloseButton,
+  PopoverBody,
+  Tabs,
+  TabPanels,
+  TabList,
+  TabPanel,
+  Tab
+} from '@chakra-ui/react'
+
+import NextLink from "next/link"
+
 import {
   ExternalLinkIcon,
   AddIcon,
@@ -20,10 +40,14 @@ export const Navbar = () => {
   const [show, setShow] = useState(false);
   const [profile, setProfile] = useState(false);
   const { disconnect } = useDisconnect();
-
+  const initialFocusRef = React.useRef()
   const { tags } = useContext(TagsFilterContext);
-
+  const { isOpen, onToggle, onClose } = useDisclosure();
   const lensProfile = useContext(ProfileContext);
+  const [selectedTab, setSelectedTab] = useState(0);
+  const handleTabClick = (e: any) => {
+    setSelectedTab(e);
+  };
 
   useEffect(() => {
     explore({ tags }).then((data) => {
@@ -37,51 +61,126 @@ export const Navbar = () => {
       <Card>
         {/* header */}
         <Card width="100%" height="80px" borderRadius="0" >
-          <CardHeader display="flex" >
+          <CardHeader display="flex" justifyContent="space-between" >
             <Link color="#2288FF" fontWeight="bold" fontSize="30px">To-share</Link>
 
-            <Menu>
-              <Box border="none">
-                <MenuButton as={Button}>
-                <AttachmentIcon/>
-                </MenuButton>
-                <MenuList>
-                 lista de doc
-                </MenuList>
-              </Box>
+            <Box background="none" display="flex" paddingLeft="50px" justifyContent="flex-end">
 
-              <Box border="none">
-                <MenuButton as={Button}>
-                <BellIcon/>
-                </MenuButton>
-                <MenuList>
-                  aqui va las notifi
-                </MenuList>
-              </Box>
+              <div>
+                <Popover>
+                  <PopoverTrigger>
+                    <AttachmentIcon></AttachmentIcon>
+                  </PopoverTrigger>
+                  <PopoverContent>
+                    <PopoverArrow />
+                    <PopoverCloseButton />
+                    <PopoverHeader>guia Carpetas</PopoverHeader>
+                    <PopoverBody>todas las Notificaciones</PopoverBody>
+                  </PopoverContent>
+                </Popover>
+              </div>
+              <Box width="10px"> </Box>
+              <div >
+                <Popover>
+                  <PopoverTrigger>
+                    <BellIcon></BellIcon>
+                  </PopoverTrigger>
+                  <PopoverContent>
+                    <PopoverArrow />
+                    <PopoverCloseButton />
+                    <PopoverHeader>Notificaciones!</PopoverHeader>
+                    <PopoverBody>Are you sure you want to have that milkshake?</PopoverBody>
+                  </PopoverContent>
+                </Popover>
+              </div>
+              <Box width="10px"> </Box>
+              <div>
+                <Popover>
+                  <PopoverTrigger>
+                    <svg width="20px" height="25" viewBox="0 0 24 24" fill="0">
+                      <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
+                      <path d="M0 0h24v24H0z" fill="none" />
+                    </svg>
+                  </PopoverTrigger>
+                  <PopoverContent>
+                    <PopoverArrow />
+                    <PopoverCloseButton />
+                    <PopoverHeader>Perfil</PopoverHeader>
+                    <PopoverBody>los dato de perfil</PopoverBody>
+                  </PopoverContent>
+                </Popover>
+              </div>
+              <Box width="10px"> </Box>
+              <div>
+                0xCcC...2811C
+              </div>
+            </Box>
 
-
-            </Menu>
           </CardHeader>
         </Card>
 
-        {/* bady */}
-        <Card>
-
-        </Card>
-
         {/* left card */}
-        <Card width="15%" borderRadius="0" minHeight="100vh" background="rgba(217, 217, 217, 0.4)">
+        <CardBody display="flex" justifyContent="space-between" padding="-30px">
+          <Card width="15%" borderRadius="0" minHeight="100vh" background="rgba(217, 217, 217, 0.4)">
 
-          <CardBody >
-            <Button background="#FFFF" color="rgba(0, 0, 0, 0.66)" variant='solid' width="20vh" borderRadius="20px" border="1px solid rgba(0, 0, 0, 0.1)">
-              New +
-            </Button>
+            <CardBody height="200px" >
+              <Popover
+                returnFocusOnClose={false}
+                isOpen={isOpen}
+                onClose={onClose}
+                placement='right'
+                closeOnBlur={false}
+              >
+                <PopoverTrigger>
+                  <Button background="#ffff" border="1px solid rgba(217, 217, 217, 0.8)" width="150px" borderRadius="20px" onClick={onToggle}>New</Button>
+                </PopoverTrigger>
+                <PopoverContent>
+                  <PopoverHeader fontWeight='semibold'>New File</PopoverHeader>
+                  <PopoverArrow />
+                  <PopoverCloseButton />
+                  <PopoverBody>
+                    add ...
+                  </PopoverBody>
+                </PopoverContent>
+              </Popover>
+
+              <Box height="50px"> </Box>
+
+              <Box>
+                 <NextLink href='/Profile' passHref>
+                  <Link>Prfile</Link>
+                </NextLink>
+                <br />
+                <NextLink href='/home' passHref>
+                  <Link>Home</Link>
+                </NextLink>
+                <br />
+                <NextLink href='/home' passHref>
+                  <Link>Home</Link>
+                </NextLink>
+                <br />
+                <NextLink href='/home' passHref>
+                  <Link>Home</Link>
+                </NextLink>
+                <NextLink href='/home' passHref>
+                  <Link>Home</Link>
+                </NextLink>             
+              </Box>
+            </CardBody>
+          </Card>
 
 
+          <CardBody background="none">
+          {/*   <Profile/> */}
+
+create new file 
           </CardBody>
 
-        </Card>
 
+        </CardBody>
+
+
+       {/*  <Route path="/your-component" component={Profile} /> */}
       </Card>
     </>
   );
