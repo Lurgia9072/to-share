@@ -69,7 +69,7 @@ export const Profile = () => {
           </Stack>
         </Stack>
         <Box display="flex" justifyContent="flex-end">
-          <Button>New</Button>              
+          <Button onClick="newTeam">New</Button>              
         </Box>
     </Stack>
       
