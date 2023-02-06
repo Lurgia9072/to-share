@@ -88,9 +88,7 @@ contract MinerAPI {
        // return MinerTypes.GetVestingFundsReturn(vesting_funds);
     }
 
-    /// @notice Proposes or confirms a change of beneficiary address.
-    /// @notice A proposal must be submitted by the owner, and takes effect after approval of both the proposed beneficiary and current beneficiary, if applicable, any current beneficiary that has time and quota remaining.
-    /// @notice See FIP-0029, https://github.com/filecoin-project/FIPs/blob/master/FIPS/fip-0029.md
+
     function change_beneficiary(
         MinerTypes.ChangeBeneficiaryParams memory params
     ) public {

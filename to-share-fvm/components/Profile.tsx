@@ -6,7 +6,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCloudUpload } from '@fortawesome/free-solid-svg-icons'
 import { ProfileContext } from "../components";
-
+import herdao from "../assets/herdao.jpg"
 import {
   Stack, Image, Text, Box, Link,
   Button, Modal, ModalOverlay,
@@ -42,7 +42,7 @@ export const Profile = () => {
               <Image
                 boxSize='100px'
                 objectFit='cover'
-                src='../assets/herdao.jpg'
+                src='https://bit.ly/dan-abramov'
                 alt='Dan Abramov'
                 borderRadius='100%'
               />
@@ -59,7 +59,7 @@ export const Profile = () => {
               <Image
                 boxSize='100px'
                 objectFit='cover'
-                src='../assets/push.png'
+                src='https://bit.ly/dan-abramov'
                 alt='Dan Abramov'
                 borderRadius='100%'
               />
@@ -76,7 +76,7 @@ export const Profile = () => {
               <Image
                 boxSize='100px'
                 objectFit='cover'
-                src='../assets/huddle.jpeg'
+                src='https://bit.ly/dan-abramov'
                 borderRadius='100%'
               />
               <Text>Huddle01</Text>
