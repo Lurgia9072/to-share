@@ -21,11 +21,11 @@ export const Profile = () => {
               <Image
                 boxSize='100px'
                 objectFit='cover'
-                src='https://bit.ly/dan-abramov'
+                src='../assets/herdao.jpg'
                 alt='Dan Abramov'
                 borderRadius='100%'
               />
-              <Text>Push Protocol  Push</Text>
+              <Text>HerDao</Text>
             </Box>
             <Box padding='20px'>
               <Text>The communication protocol of web3. Push enables cross-chain notifications & messaging for dapps, wallets, users & more
@@ -38,11 +38,11 @@ export const Profile = () => {
               <Image
                 boxSize='100px'
                 objectFit='cover'
-                src='https://bit.ly/dan-abramov'
+                src='../assets/push.png'
                 alt='Dan Abramov'
                 borderRadius='100%'
               />
-              <Text>Push Protocol  Push</Text>
+              <Text>Push Protocol</Text>
             </Box>
             <Box padding='20px'>
               <Text>The communication protocol of web3. Push enables cross-chain notifications & messaging for dapps, wallets, users & more
@@ -55,11 +55,10 @@ export const Profile = () => {
               <Image
                 boxSize='100px'
                 objectFit='cover'
-                src='https://bit.ly/dan-abramov'
-                alt='Dan Abramov'
+                src='../assets/huddle.jpeg'
                 borderRadius='100%'
               />
-              <Text>Push Protocol  Push</Text>
+              <Text>Huddle01</Text>
             </Box>
             <Box padding='20px'>
               <Text>The communication protocol of web3. Push enables cross-chain notifications & messaging for dapps, wallets, users & more

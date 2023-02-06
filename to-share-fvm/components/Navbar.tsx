@@ -172,7 +172,7 @@ export const Navbar = () => {
                 <br />
                 <NextLink href='/home' passHref>
                 <FontAwesomeIcon icon={faUsers} />
-                  <Link  paddingLeft="10px">Teams</Link>
+                  <Link  paddingLeft="10px" href='./Profile.tsx'>Teams</Link>
                 </NextLink>
                 <br/>
                 <NextLink href='/home' passHref>
