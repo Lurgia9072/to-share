@@ -4,7 +4,15 @@ import { useDisconnect } from "wagmi";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFolderOpen, faUsers, faPhoneVolume, faShareFromSquare } from '@fortawesome/free-solid-svg-icons'
 import { explore } from "../lib/lens/explore-publications";
-import { Profile, ProfileContext, TagsFilterContext } from "../components";
+import { Profile, ProfileContext, TagsFilterContext } from "../components";import {
+  Transform,
+  IconProp,
+  FlipProp,
+  SizeProp,
+  PullProp,
+  RotateProp,
+  FaSymbol
+} from '@fortawesome/fontawesome-svg-core'
 import {
   Link,
   Box,
@@ -165,23 +173,23 @@ export const Navbar = () => {
               <Box height="20px"> </Box>
               <Box>  
                 <br/>
-                <NextLink href='/home' passHref>
-                <FontAwesomeIcon icon={faFolderOpen} />
+                <NextLink href='/#' passHref>
+              {/*   <FontAwesomeIcon  size={"2xs"} icon={faFolderOpen} /> */}
                   <Link paddingLeft="10px">Files</Link>
                 </NextLink>
                 <br />
-                <NextLink href='/home' passHref>
-                <FontAwesomeIcon icon={faUsers} />
-                  <Link  paddingLeft="10px" href='./Profile.tsx'>Teams</Link>
+                <NextLink href='/#' passHref>
+             {/*    <FontAwesomeIcon icon={faUsers} /> */}
+                  <Link  paddingLeft="10px">Teams</Link>
                 </NextLink>
                 <br/>
-                <NextLink href='/home' passHref>
-                <FontAwesomeIcon icon={faPhoneVolume} />
+                <NextLink href='/#' passHref>
+               {/*  <FontAwesomeIcon icon={faPhoneVolume} /> */}
                   <Link  paddingLeft="10px">Calls</Link>
                 </NextLink>
                 <br/>
-                <NextLink href='/home' passHref>
-                <FontAwesomeIcon icon={faShareFromSquare} />
+                <NextLink href='/#' passHref>
+                {/* <FontAwesomeIcon icon={faShareFromSquare} /> */}
                   <Link  paddingLeft="10px">Shared</Link>
                 </NextLink>
               </Box>
@@ -189,9 +197,7 @@ export const Navbar = () => {
           </Card>
 
           <CardBody background="none">
-            {/*   <Profile/> */}
-
-            create new file
+           <Profile/>
           </CardBody>
         </CardBody>
 
