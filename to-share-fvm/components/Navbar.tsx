@@ -1,6 +1,8 @@
 /* eslint-disable jsx-a11y/role-supports-aria-props */
 import React, { useContext, useEffect, useState } from "react";
 import { useDisconnect } from "wagmi";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFolderOpen, faUsers, faPhoneVolume, faShareFromSquare } from '@fortawesome/free-solid-svg-icons'
 import { explore } from "../lib/lens/explore-publications";
 import { Profile, ProfileContext, TagsFilterContext } from "../components";
 import {
@@ -144,43 +146,44 @@ export const Navbar = () => {
                 </PopoverContent>
               </Popover>
 
-              <Box height="50px"> </Box>
-
-              <Box>
-                 <NextLink href='/Profile' passHref>
-                  <Link>Prfile</Link>
+              <Box height="20px"> </Box>
+              <Box>  
+                <br/>
+                <NextLink href='/home' passHref>
+                <FontAwesomeIcon icon={faFolderOpen} />
+                  <Link paddingLeft="10px">Files</Link>
                 </NextLink>
                 <br />
                 <NextLink href='/home' passHref>
-                  <Link>Home</Link>
+                <FontAwesomeIcon icon={faUsers} />
+                  <Link  paddingLeft="10px">Teams</Link>
                 </NextLink>
-                <br />
+                <br/>
                 <NextLink href='/home' passHref>
-                  <Link>Home</Link>
+                <FontAwesomeIcon icon={faPhoneVolume} />
+                  <Link  paddingLeft="10px">Calls</Link>
                 </NextLink>
-                <br />
+                <br/>
                 <NextLink href='/home' passHref>
-                  <Link>Home</Link>
+                <FontAwesomeIcon icon={faShareFromSquare} />
+                  <Link  paddingLeft="10px">Shared</Link>
                 </NextLink>
-                <NextLink href='/home' passHref>
-                  <Link>Home</Link>
-                </NextLink>             
               </Box>
             </CardBody>
           </Card>
 
 
           <CardBody background="none">
-          {/*   <Profile/> */}
+            {/*   <Profile/> */}
 
-create new file 
+            create new file
           </CardBody>
 
 
         </CardBody>
 
 
-       {/*  <Route path="/your-component" component={Profile} /> */}
+        {/*  <Route path="/your-component" component={Profile} /> */}
       </Card>
     </>
   );
