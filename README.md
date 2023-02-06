@@ -27,7 +27,7 @@
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 [math-magician] <a name="about-project"></a>
+# 📖 [ToShare] <a name="about-project"></a>
 
 **[ToShare]** <p align="justify"> Toshare is a decentralized platform for project management that offers a secure and efficient solution for managing projects and teams. It provides project managers with tools to manage their projects, including the ability to create and manage teams, communicate with contributors, and securely store and access project information. Meanwhile, contributors can easily join projects, track their work, and receive payment through the platform's use of scrow smart contracts and point equivalent system. All information is stored on the Filecoin network, ensuring secure and reliable data storage. With its user-friendly interface and robust features, Toshare streamlines project management and provides a better experience for both project managers and contributors.</p>
 
@@ -88,7 +88,7 @@ Clone this repository to your desired folder:
 Install this project with:
 
 - get into to directory "to-share"
-- write: cd to-share-fvm
+- write: cd "to-share-fvm"
 - write: npm install
 - write: npm run dev
 
