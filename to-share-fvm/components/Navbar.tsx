@@ -2,8 +2,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useDisconnect } from "wagmi";
 import { explore } from "../lib/lens/explore-publications";
-import { ProfileContext, TagsFilterContext } from "../components";
-import { deleteLensLocalStorage } from "../lib/lens/localStorage";
+import { Profile, ProfileContext, TagsFilterContext } from "../components";
 import {
   Link,
   Box,
@@ -17,9 +16,14 @@ import {
   PopoverArrow,
   PopoverCloseButton,
   PopoverBody,
-  PopoverFooter,
-  ButtonGroup
+  Tabs,
+  TabPanels,
+  TabList,
+  TabPanel,
+  Tab
 } from '@chakra-ui/react'
+
+import NextLink from "next/link"
 
 import {
   ExternalLinkIcon,
@@ -40,6 +44,10 @@ export const Navbar = () => {
   const { tags } = useContext(TagsFilterContext);
   const { isOpen, onToggle, onClose } = useDisclosure();
   const lensProfile = useContext(ProfileContext);
+  const [selectedTab, setSelectedTab] = useState(0);
+  const handleTabClick = (e: any) => {
+    setSelectedTab(e);
+  };
 
   useEffect(() => {
     explore({ tags }).then((data) => {
@@ -111,39 +119,68 @@ export const Navbar = () => {
           </CardHeader>
         </Card>
 
-        {/* bady */}
-        <Card>
-
-        </Card>
-
         {/* left card */}
-        <Card width="15%" borderRadius="0" minHeight="100vh" background="rgba(217, 217, 217, 0.4)">
+        <CardBody display="flex" justifyContent="space-between" padding="-30px">
+          <Card width="15%" borderRadius="0" minHeight="100vh" background="rgba(217, 217, 217, 0.4)">
 
-          <CardBody >
-            <Popover
-              returnFocusOnClose={false}
-              isOpen={isOpen}
-              onClose={onClose}
-              placement='right'
-              closeOnBlur={false}
-            >
-              <PopoverTrigger>
-                <Button background="#ffff" border="1px solid rgba(217, 217, 217, 0.8)" width="150px" borderRadius="20px" onClick={onToggle}>New</Button>
-              </PopoverTrigger>
-              <PopoverContent>
-                <PopoverHeader fontWeight='semibold'>Confirmation</PopoverHeader>
-                <PopoverArrow />
-                <PopoverCloseButton />
-                <PopoverBody>
-                  Are you sure you want to continue with your action?
-                </PopoverBody>                
-              </PopoverContent>
-            </Popover>
+            <CardBody height="200px" >
+              <Popover
+                returnFocusOnClose={false}
+                isOpen={isOpen}
+                onClose={onClose}
+                placement='right'
+                closeOnBlur={false}
+              >
+                <PopoverTrigger>
+                  <Button background="#ffff" border="1px solid rgba(217, 217, 217, 0.8)" width="150px" borderRadius="20px" onClick={onToggle}>New</Button>
+                </PopoverTrigger>
+                <PopoverContent>
+                  <PopoverHeader fontWeight='semibold'>New File</PopoverHeader>
+                  <PopoverArrow />
+                  <PopoverCloseButton />
+                  <PopoverBody>
+                    add ...
+                  </PopoverBody>
+                </PopoverContent>
+              </Popover>
 
+              <Box height="50px"> </Box>
+
+              <Box>
+                 <NextLink href='/Profile' passHref>
+                  <Link>Prfile</Link>
+                </NextLink>
+                <br />
+                <NextLink href='/home' passHref>
+                  <Link>Home</Link>
+                </NextLink>
+                <br />
+                <NextLink href='/home' passHref>
+                  <Link>Home</Link>
+                </NextLink>
+                <br />
+                <NextLink href='/home' passHref>
+                  <Link>Home</Link>
+                </NextLink>
+                <NextLink href='/home' passHref>
+                  <Link>Home</Link>
+                </NextLink>             
+              </Box>
+            </CardBody>
+          </Card>
+
+
+          <CardBody background="none">
+          {/*   <Profile/> */}
+
+create new file 
           </CardBody>
 
-        </Card>
 
+        </CardBody>
+
+
+       {/*  <Route path="/your-component" component={Profile} /> */}
       </Card>
     </>
   );
